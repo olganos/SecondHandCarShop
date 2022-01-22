@@ -11,18 +11,18 @@ namespace Backend.Controllers
     public class CarController : ControllerBase
     {
         private readonly ICarRepository _carRepository;
-        //private readonly IMapper _mapper;
+        private readonly IMapper _mapper;
 
-        public CarController(ICarRepository carRepository/*, IMapper mapper*/)
+        public CarController(ICarRepository carRepository, IMapper mapper)
         {
             _carRepository = carRepository;
-            //_mapper = mapper;
+            _mapper = mapper;
         }
 
         [HttpGet]
-        public IEnumerable<Warehouse> Get()
+        public IEnumerable<WarehouseDto> Get()
         {
-            return new Class1().Warehouses;
+            return _mapper.Map<IEnumerable<WarehouseDto>>(_carRepository.GetAll());
         }
     }
 }

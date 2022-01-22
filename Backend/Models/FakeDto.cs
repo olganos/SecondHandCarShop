@@ -1,25 +1,25 @@
 ﻿namespace Backend.Models
 {
-    public class Class1
+    public class FakeDto
     {
-        public IEnumerable<Warehouse> Warehouses =>
-            new Warehouse[]
+        public IEnumerable<WarehouseDto> Warehouses =>
+            new WarehouseDto[]
             {
-                new Warehouse
+                new WarehouseDto
                      {
                          Id = "1",
                          Name = "Warehouse A",
-                         Location = new Location
+                         Location = new LocationDto
                          {
                              Lat="47.13111",
                              Lng = "-61.54801"
                          },
-                         Cars = new Cars
+                         Cars = new CarsDto
                          {
                              Location = "West wing",
-                             Vehicles = new Vehicle[]
+                             Vehicles = new VehicleDto[]
                              {
-                                 new Vehicle
+                                 new VehicleDto
                                  {
                                      Id= 1,
                                       Make= "Volkswagen",
@@ -29,7 +29,7 @@
                                       Licensed= true,
                                       DateAdded= "2018-09-18"
                                  },
-                                  new Vehicle
+                                  new VehicleDto
                                  {
                                      Id= 2,
                                       Make= "Chevrolet",
@@ -42,21 +42,21 @@
                              }
                          }
                      },
-                new Warehouse
+                new WarehouseDto
                      {
                          Id = "2",
                          Name = "Warehouse B",
-                         Location = new Location
+                         Location = new LocationDto
                          {
                              Lat="15.95386",
                              Lng = "7.06246"
                          },
-                         Cars = new Cars
+                         Cars = new CarsDto
                          {
                              Location = "East wing",
-                             Vehicles = new Vehicle[]
+                             Vehicles = new VehicleDto[]
                              {
-                                 new Vehicle
+                                 new VehicleDto
                                  {
                                      Id= 20,
                                       Make= "Maserati",
@@ -66,7 +66,7 @@
                                       Licensed= false,
                                       DateAdded= "2017-11-14"
                                  },
-                                  new Vehicle
+                                  new VehicleDto
                                  {
                                      Id= 21,
                                       Make= "Isuzu",

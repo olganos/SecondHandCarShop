@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Domain
+﻿namespace Domain
 {
     public class FakeClass
     {
@@ -16,8 +10,8 @@ namespace Domain
                 Name = "Warehouse A",
                 Location = new Location
                 {
-                Lat="47.13111",
-                Lng = "-61.54801"
+                    Lat="47.13111",
+                    Lng = "-61.54801"
                 },
                 LocationName = "West wing",
                 Vehicles = new Vehicle[]
