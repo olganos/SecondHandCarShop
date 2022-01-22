@@ -1,15 +1,21 @@
 ﻿namespace Domain
 {
-
     public class Vehicle
     {
-        public int _id { get; set; }
-        public string make { get; set; }
-        public string model { get; set; }
-        public int year_model { get; set; }
-        public float price { get; set; }
-        public bool licensed { get; set; }
-        public string date_added { get; set; }
-    }
+        public int Id { get; set; }
 
+        public string Make { get; set; }
+
+        public string Model { get; set; }
+
+        public int YearModel { get; set; }
+
+        public double Price { get; set; }
+
+        public bool Licensed { get; set; }
+
+        public DateTimeOffset DateAdded { get; set; }
+
+        public Warehouse Warehouse { get; set; }
+    }
 }
