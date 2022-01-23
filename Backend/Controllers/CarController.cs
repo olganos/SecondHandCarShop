@@ -26,10 +26,15 @@ namespace Backend.Controllers
         }
 
         [HttpGet("{id}")]
-        public VehicleViewDto Get(int id)
+        public ActionResult<VehicleViewDto> Get(int id)
         {
-            return _mapper.Map<VehicleViewDto>(_carRepository.GetOne(id));
-            // todo: throw notfound
+            var vehicleDB = _carRepository.GetOne(id);
+            if (vehicleDB is null)
+            {
+                return NotFound();
+            }
+
+            return _mapper.Map<VehicleViewDto>(vehicleDB);
         }
     }
 }
