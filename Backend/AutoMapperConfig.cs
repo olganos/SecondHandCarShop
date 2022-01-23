@@ -18,10 +18,8 @@ public class AutoMapperConfig : Profile
             .ForMember(d => d.Location, opt => opt.MapFrom(source => source.Location))
             .ForMember(d => d.Cars, opt => opt.MapFrom(source => source));
 
-        CreateMap<Vehicle, WarehouseDto>()
-           .ForPath(d => d.Name, opt => opt.MapFrom(source => source.Warehouse.Name))
-           .ForPath(d => d.Location, opt => opt.MapFrom(source => source.Warehouse.Location))
-           .ForMember(d => d.Cars, opt => opt.MapFrom(source => source.Warehouse))
-           .ForPath(d => d.Cars.Vehicles, opt => opt.MapFrom(source => new Vehicle[] { source }));
+        CreateMap<Vehicle, VehicleViewDto>()
+            .ForMember(d => d.DateAdded, opt => opt.MapFrom(source => source.DateAdded.ToString("yyyy-MM-dd")))
+            .ForPath(d => d.WarehouseName, opt => opt.MapFrom(source => source.Warehouse.Name));
     }
 }

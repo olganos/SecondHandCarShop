@@ -1,10 +1,10 @@
-﻿namespace Backend.Models
+﻿using Backend.Models;
+
+public class FakeDto
 {
-    public class FakeDto
-    {
-        public IEnumerable<WarehouseDto> Warehouses =>
-            new WarehouseDto[]
-            {
+    public IEnumerable<WarehouseDto> Warehouses =>
+        new WarehouseDto[]
+        {
                 new WarehouseDto
                      {
                          Id = "1",
@@ -79,21 +79,18 @@
                              }
                          }
                      }
-            };
+        };
 
-        public WarehouseDto? getVehicleById(int id)
+    public VehicleViewDto VehicleViewId_1 =>
+        new VehicleViewDto
         {
-            var warehouse = Warehouses
-               .FirstOrDefault(x => x.Cars.Vehicles
-               .FirstOrDefault(xx => xx.Id == id) != null);
-
-            if (warehouse == null)
-                return null;
-
-            warehouse.Cars.Vehicles = warehouse.Cars.Vehicles
-                .Where(x => x.Id == id);
-
-            return warehouse;
-        }
-    }
+            Id = 1,
+            Make = "Volkswagen",
+            Model = "Jetta III",
+            YearModel = 1995,
+            Price = 12947.52,
+            Licensed = true,
+            DateAdded = "2018-09-18",
+            WarehouseName = "Warehouse A",
+        };
 }

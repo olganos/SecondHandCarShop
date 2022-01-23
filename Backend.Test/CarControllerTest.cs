@@ -47,7 +47,7 @@ namespace Backend.Test
             var response = _carController.Get(id);
 
             var responseToStr = JsonConvert.SerializeObject(response);
-            var expectedToStr = JsonConvert.SerializeObject(new FakeDto().getVehicleById(id));
+            var expectedToStr = JsonConvert.SerializeObject(new FakeDto().VehicleViewId_1);
             Assert.Equal(expectedToStr, responseToStr);
         }
     }

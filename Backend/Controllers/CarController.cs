@@ -26,9 +26,9 @@ namespace Backend.Controllers
         }
 
         [HttpGet("{id}")]
-        public WarehouseDto Get(int id)
+        public VehicleViewDto Get(int id)
         {
-            return _mapper.Map<WarehouseDto>(_carRepository.GetOne(id));
+            return _mapper.Map<VehicleViewDto>(_carRepository.GetOne(id));
             // todo: throw notfound
         }
     }
