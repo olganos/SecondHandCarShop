@@ -73,5 +73,26 @@
                 }
             }
         };
+
+        public Vehicle? getVehicleById(int id)
+        {
+            var warehouse = Warehouses
+               .FirstOrDefault(x => x.Vehicles
+               .FirstOrDefault(xx => xx.Id == id) != null);
+
+            var vehicle = warehouse?.Vehicles
+                .FirstOrDefault(x => x.Id == id);
+
+            if (vehicle != null)
+            {
+                if (warehouse != null)
+                {
+                    warehouse.Vehicles = null;
+                }
+                vehicle.Warehouse = warehouse;
+            }
+
+            return vehicle;
+        }
     }
 }

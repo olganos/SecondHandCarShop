@@ -11,5 +11,7 @@ namespace Abstraction.Repository
     public interface ICarRepository
     {
         IEnumerable<Warehouse> GetAll();
+
+        Vehicle? GetOne(int id);
     }
 }

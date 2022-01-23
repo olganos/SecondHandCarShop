@@ -24,5 +24,12 @@ namespace Backend.Controllers
         {
             return _mapper.Map<IEnumerable<WarehouseDto>>(_carRepository.GetAll());
         }
+
+        [HttpGet]
+        public WarehouseDto Get(int id)
+        {
+            return _mapper.Map<WarehouseDto>(_carRepository.GetOne(id));
+            // todo: throw notfound
+        }
     }
 }

@@ -4,6 +4,6 @@
     {
         public string Location { get; set; }
 
-        public VehicleDto[] Vehicles { get; set; }
+        public IEnumerable<VehicleDto> Vehicles { get; set; }
     }
 }

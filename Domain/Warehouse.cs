@@ -10,6 +10,6 @@
 
         public string LocationName { get; set; }
 
-        public Vehicle[] Vehicles { get; set; }
+        public IEnumerable<Vehicle> Vehicles { get; set; }
     }
 }

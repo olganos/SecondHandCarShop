@@ -38,5 +38,17 @@ namespace Backend.Test
             var expectedToStr = JsonConvert.SerializeObject(new FakeDto().Warehouses);
             Assert.Equal(expectedToStr, responseToStr);
         }
+
+        [Fact]
+        public void ShouldReturnOneCar()
+        {
+            var id = 1;
+            _carRepositoryMock.Setup(x => x.GetOne(id)).Returns(new FakeClass().getVehicleById(id));
+            var response = _carController.Get(id);
+
+            var responseToStr = JsonConvert.SerializeObject(response);
+            var expectedToStr = JsonConvert.SerializeObject(new FakeDto().getVehicleById(id));
+            Assert.Equal(expectedToStr, responseToStr);
+        }
     }
 }

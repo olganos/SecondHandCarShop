@@ -80,5 +80,20 @@
                          }
                      }
             };
+
+        public WarehouseDto? getVehicleById(int id)
+        {
+            var warehouse = Warehouses
+               .FirstOrDefault(x => x.Cars.Vehicles
+               .FirstOrDefault(xx => xx.Id == id) != null);
+
+            if (warehouse == null)
+                return null;
+
+            warehouse.Cars.Vehicles = warehouse.Cars.Vehicles
+                .Where(x => x.Id == id);
+
+            return warehouse;
+        }
     }
 }
