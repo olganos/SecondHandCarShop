@@ -21,6 +21,7 @@ namespace Backend.Models
         [JsonPropertyName("date_added")]
         public string DateAdded { get; set; }
 
+        [JsonPropertyName("warehouse_name")]
         public string WarehouseName { get; set; }
     }
 }
