@@ -16,6 +16,8 @@
 
         public DateTimeOffset DateAdded { get; set; }
 
+        public int WarehouseId { get; set; }
+
         public Warehouse Warehouse { get; set; }
     }
 }

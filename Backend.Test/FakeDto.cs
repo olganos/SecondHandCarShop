@@ -1,5 +1,7 @@
 ﻿using Backend.Models;
 
+using System.Collections.Generic;
+
 public class FakeDto
 {
     public IEnumerable<WarehouseDto> Warehouses =>

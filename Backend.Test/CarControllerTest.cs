@@ -2,11 +2,8 @@ using Xunit;
 using Moq;
 using Newtonsoft.Json;
 using AutoMapper;
-
-using Domain;
 using Abstraction.Repository;
 using Backend.Controllers;
-using Backend.Models;
 
 namespace Backend.Test
 {
@@ -30,7 +27,7 @@ namespace Backend.Test
         [Fact]
         public void ShouldReturnAllCars()
         {
-            _carRepositoryMock.Setup(x => x.GetAll()).Returns(new FakeClass().Warehouses);
+            _carRepositoryMock.Setup(x => x.GetAll()).Returns(new FakeDomain().Warehouses);
 
             var response = _carController.Get();
 
@@ -43,10 +40,10 @@ namespace Backend.Test
         public void ShouldReturnOneCar()
         {
             var id = 1;
-            _carRepositoryMock.Setup(x => x.GetOne(id)).Returns(new FakeClass().getVehicleById(id));
+            _carRepositoryMock.Setup(x => x.GetOne(id)).Returns(new FakeDomain().getVehicleById(id));
             var response = _carController.Get(id);
 
-            var responseToStr = JsonConvert.SerializeObject(response);
+            var responseToStr = JsonConvert.SerializeObject(response.Value);
             var expectedToStr = JsonConvert.SerializeObject(new FakeDto().VehicleViewId_1);
             Assert.Equal(expectedToStr, responseToStr);
         }

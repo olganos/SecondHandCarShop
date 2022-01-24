@@ -1,9 +1,13 @@
+using Microsoft.EntityFrameworkCore;
 using Abstraction.Repository;
 using DAL;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddDbContext<PostgresSqlContext>(c =>
+                  c.UseNpgsql(builder.Configuration.GetConnectionString("PostgresSqlConnection")));
 
 builder.Services.AddControllers();
 builder.Services.AddScoped<ICarRepository, CarRepository>();

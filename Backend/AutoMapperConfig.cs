@@ -10,12 +10,12 @@ public class AutoMapperConfig : Profile
     {
         CreateMap<Vehicle, VehicleDto>()
             .ForMember(d => d.DateAdded, opt => opt.MapFrom(source => source.DateAdded.ToString("yyyy-MM-dd")));
-        CreateMap<Location, LocationDto>();
+        CreateMap<Warehouse, LocationDto>();
         CreateMap<Warehouse, CarsDto>()
             .ForMember(d => d.Location, opt => opt.MapFrom(source => source.LocationName))
             .ForMember(d => d.Vehicles, opt => opt.MapFrom(source => source.Vehicles));
         CreateMap<Warehouse, WarehouseDto>()
-            .ForMember(d => d.Location, opt => opt.MapFrom(source => source.Location))
+            .ForMember(d => d.Location, opt => opt.MapFrom(source => source))
             .ForMember(d => d.Cars, opt => opt.MapFrom(source => source));
 
         CreateMap<Vehicle, VehicleViewDto>()
